@@ -35,6 +35,9 @@ def main():
     # rename the lineages from the undif. lines to "undifferentiated"
     lines_info.loc[lines_info["is_undifferentiated"], "lineage"] = "undifferentiated"
 
+    # Filter breast cell lines
+    lines_info = lines_info[lines_info["lineage"] == "breast"]
+
     lines_info.to_csv(where_to_save, sep=",", index=False)
 
 
