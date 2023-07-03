@@ -22,7 +22,7 @@ count_matrix  <- ccle_counts[,lines_to_test]
 rownames(compound_to_test) <- compound_to_test$DepMap_ID
 
 ## voom model
-design <- model.matrix(~lineage + area_under_curve, data=compound_to_test)
+design <- model.matrix(~area_under_curve, data=compound_to_test)
 
 ## reorder count_matrix so that cols matches rows from design
 count_matrix <- count_matrix[,rownames(design)]
