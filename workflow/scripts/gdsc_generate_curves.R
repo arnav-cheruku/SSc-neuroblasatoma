@@ -64,7 +64,7 @@ write.csv(lines_by_compound, file=compounds_lines_profiled, row.names=FALSE)
 
 ## Get rid of models with less than 10 profiled lines
 compounds_to_test <- lines_by_compound %>%
-    filter(profiled_lines >= 10 & cv >= 0.1) %>%
+    filter(profiled_lines >= 10) %>%
     arrange(desc(cv)) %>% 
     distinct(DRUG_ID, .keep_all = TRUE) %>%
     pull(DRUG_ID)
