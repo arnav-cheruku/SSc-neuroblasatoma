@@ -11,7 +11,7 @@ rule ctrp_build_db:
     threads: get_resource("annotate_cell_lines", "threads"),
     resources:
         mem_mb=get_resource("annotate_cell_lines", "mem_mb"),
-        walltime=get_resource("annotate_cell_lines", "walltime"),
+        runtime=get_resource("annotate_cell_lines", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -32,7 +32,7 @@ rule gdsc_build_db:
     threads: get_resource("annotate_cell_lines", "threads"),
     resources:
         mem_mb=get_resource("annotate_cell_lines", "mem_mb"),
-        walltime=get_resource("annotate_cell_lines", "walltime"),
+        runtime=get_resource("annotate_cell_lines", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -53,7 +53,7 @@ rule gdsc_rna_build_db:
     threads: get_resource("annotate_cell_lines", "threads"),
     resources:
         mem_mb=get_resource("annotate_cell_lines", "mem_mb"),
-        walltime=get_resource("annotate_cell_lines", "walltime"),
+        runtime=get_resource("annotate_cell_lines", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -72,7 +72,7 @@ rule prism_build_db:
     threads: get_resource("annotate_cell_lines", "threads"),
     resources:
         mem_mb=get_resource("annotate_cell_lines", "mem_mb"),
-        walltime=get_resource("annotate_cell_lines", "walltime"),
+        runtime=get_resource("annotate_cell_lines", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -93,7 +93,7 @@ rule build_drug_database:
     threads: get_resource("default", "threads"),
     resources:
         mem_mb=get_resource("default", "mem_mb"),
-        walltime=get_resource("default", "walltime"),
+        runtime=get_resource("default", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -109,7 +109,7 @@ rule dependency_enrichment_from_bayes:
     threads: 1
     resources:
         mem_mb = get_resource("default", "mem_mb"),
-        walltime = get_resource("default", "walltime"),
+        runtime = get_resource("default", "runtime"),
     conda:
         "../envs/fgsea.yaml"
     script:
@@ -125,7 +125,7 @@ rule dependency_drug_enrichment_from_bayes:
     threads: 1
     resources:
         mem_mb = get_resource("default", "mem_mb"),
-        walltime = get_resource("default", "walltime"),
+        runtime = get_resource("default", "runtime"),
     conda:
         "../envs/fgsea.yaml"
     script:

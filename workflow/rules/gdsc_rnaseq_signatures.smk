@@ -14,7 +14,7 @@ checkpoint gdsc_rna_generate_compound_curves:
     threads: get_resource("gdsc_generate_compound_curves", "threads"),
     resources:
         mem_mb=get_resource("gdsc_generate_compound_curves", "mem_mb"),
-        walltime=get_resource("gdsc_generate_compound_curves", "walltime"),
+        runtime=get_resource("gdsc_generate_compound_curves", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -32,7 +32,7 @@ rule gdsc_rna_compounds_diffexpr:
     threads: get_resource("gdsc_compounds_diffexp", "threads"),
     resources:
         mem_mb=get_resource("gdsc_compounds_diffexp", "mem_mb"),
-        walltime=get_resource("gdsc_compounds_diffexp", "walltime"),
+        runtime=get_resource("gdsc_compounds_diffexp", "runtime"),
     conda:
         "../envs/prism_limma.yaml"
     script:
@@ -51,7 +51,7 @@ rule gdsc_rna_geneset_from_ebayes_classic:
     threads: get_resource("gdsc_generate_geneset", "threads"),
     resources:
         mem_mb=get_resource("gdsc_generate_geneset", "mem_mb"),
-        walltime=get_resource("gdsc_generate_geneset", "walltime"),
+        runtime=get_resource("gdsc_generate_geneset", "runtime"),
     log:
         f"{LOGDIR}/gdsc_rna/genesets/classic/{{drug_id}}.log",
     conda:
@@ -71,7 +71,7 @@ rule gdsc_rna_geneset_from_ebayes_fold:
     threads: get_resource("gdsc_generate_geneset", "threads"),
     resources:
         mem_mb=get_resource("gdsc_generate_geneset", "mem_mb"),
-        walltime=get_resource("gdsc_generate_geneset", "walltime"),
+        runtime=get_resource("gdsc_generate_geneset", "runtime"),
     log:
         f"{LOGDIR}/gdsc_rna/genesets/fold/{{drug_id}}.log",
     conda:

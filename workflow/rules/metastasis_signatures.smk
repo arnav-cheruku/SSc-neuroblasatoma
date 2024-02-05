@@ -11,7 +11,7 @@ checkpoint mets_generate_models:
     threads: get_resource("ctrp_annotate_models", "threads"),
     resources:
         mem_mb=get_resource("ctrp_annotate_models", "mem_mb"),
-        walltime=get_resource("ctrp_annotate_models", "walltime"),
+        runtime=get_resource("ctrp_annotate_models", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -29,7 +29,7 @@ rule mets_growth_generate_ebayes:
     threads: get_resource("gdsc_compounds_diffexp", "threads"),
     resources:
         mem_mb=get_resource("gdsc_compounds_diffexp", "mem_mb"),
-        walltime=get_resource("gdsc_compounds_diffexp", "walltime"),
+        runtime=get_resource("gdsc_compounds_diffexp", "runtime"),
     params:
         model_type = "mean",
     conda:
@@ -49,7 +49,7 @@ rule mets_penetrance_generate_ebayes:
     threads: get_resource("gdsc_compounds_diffexp", "threads"),
     resources:
         mem_mb=get_resource("gdsc_compounds_diffexp", "mem_mb"),
-        walltime=get_resource("gdsc_compounds_diffexp", "walltime"),
+        runtime=get_resource("gdsc_compounds_diffexp", "runtime"),
     params:
         model_type = "penetrance",
     conda:
@@ -68,7 +68,7 @@ rule mets_growth_geneset_from_ebayes:
     threads: get_resource("ctrp_generate_geneset", "threads"),
     resources:
         mem_mb=get_resource("ctrp_generate_geneset", "mem_mb"),
-        walltime=get_resource("ctrp_generate_geneset", "walltime"),
+        runtime=get_resource("ctrp_generate_geneset", "runtime"),
     params:
         model_type = "mean",
     conda:
@@ -87,7 +87,7 @@ rule mets_penetrance_geneset_from_ebayes:
     threads: get_resource("ctrp_generate_geneset", "threads"),
     resources:
         mem_mb=get_resource("ctrp_generate_geneset", "mem_mb"),
-        walltime=get_resource("ctrp_generate_geneset", "walltime"),
+        runtime=get_resource("ctrp_generate_geneset", "runtime"),
     params:
         model_type = "penetrance",
     conda:

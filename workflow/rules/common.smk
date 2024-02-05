@@ -7,7 +7,7 @@ rule annotate_cell_lines:
     threads: get_resource("annotate_cell_lines", "threads"),
     resources:
         mem_mb=get_resource("annotate_cell_lines", "mem_mb"),
-        walltime=get_resource("annotate_cell_lines", "walltime"),
+        runtime=get_resource("annotate_cell_lines", "runtime"),
     conda:
         "../envs/common_file_manipulation.yaml"
     script:
@@ -24,7 +24,7 @@ rule get_rnaseq_counts:
     threads: get_resource("default", "threads"),
     resources:
         mem_mb=get_resource("default", "mem_mb"),
-        walltime=get_resource("default", "walltime"),
+        runtime=get_resource("default", "runtime"),
     params:
         coding_genes_only = config["coding_genes_only"],
     conda:
