@@ -12,7 +12,7 @@ rdata      <- snakemake@output[["rdata_db"]]
 
 full_table <- signatures_data %>%
     map(read_csv) %>%
-    reduce(bind_rows)
+    purrr::reduce(bind_rows)
 
 ## Annotate how many lines were profiled by comp.
 lines_compounds <- read_csv(lines_compounds) 
