@@ -2,7 +2,5 @@
 workflow/.snakemake/*
 .vscode
 log/*
-datasets.csv
-config.yaml
 log
 .DS_Store
