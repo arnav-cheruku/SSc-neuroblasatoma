@@ -121,26 +121,6 @@ def get_depmap_genesets(wildcards):
         gene=glob_wildcards(os.path.join(checkpoint_output, "{gene}.csv")).gene,
     )
 
-def get_mets_genesets_growth(wildcards):
-    checkpoint_output = checkpoints.mets_generate_models.get(
-        **wildcards
-    ).output["met_model_candidates"]
-
-    return expand(
-        f"{results}/mets/genesets/{{met_type}}_growth",
-        met_type=glob_wildcards(os.path.join(checkpoint_output, "{met_type}.csv")).met_type,
-    )
-
-def get_mets_genesets_penetrance(wildcards):
-    checkpoint_output = checkpoints.mets_generate_models.get(
-        **wildcards
-    ).output["met_model_candidates"]
-
-    return expand(
-        f"{results}/mets/genesets/{{met_type}}_penetrance",
-        met_type=glob_wildcards(os.path.join(checkpoint_output, "{met_type}.csv")).met_type,
-    )
-
 def get_all_deps_enrichment(wildcards): 
     checkpoint_output = checkpoints.dependencies_annotate_crispr_data.get(
         **wildcards
@@ -185,5 +165,4 @@ include: "rules/gdsc_rnaseq_signatures.smk"
 include: "rules/prism_signatures.smk"
 include: "rules/ctrp_signatures.smk"
 include: "rules/dependency_signatures.smk"
-include: "rules/metastasis_signatures.smk"
 include: "rules/database.smk"
