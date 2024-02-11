@@ -34,13 +34,19 @@ Next, use the git clone command to create a local copy:
 git clone -b breast https://github.com/cnio-bu/drug_susceptibility_collection
 ```
 
+And create a snakemake environment:
+
+```
+conda env create -f envs/snakemake.yaml
+```
+
 ## How to run
 
 ### Set up
 You need to modify the configuration files:
 
-* **config.yaml:** Contains all pipeline parameters. Please specify the location of the output and log files.
-* **datasets.csv:** Please indicate the location of the datasets to be analysed.
+* **`config.yaml`:** Contains all pipeline parameters. Please specify the location of the output and log files.
+* **`datasets.csv`:** Please indicate the location of the datasets to be analysed.
 
 All required datasets are public and can be downloaded from the indicated sites:
 
@@ -63,10 +69,12 @@ All required datasets are public and can be downloaded from the indicated sites:
 | hallmarks                      | h.all.v2023.1.Hs.symbols.gmt                                   | [MSigDB](https://www.gsea-msigdb.org/gsea/msigdb/index.jsp)                                                   |
 
 ### Execution
-Once the pipeline is configured, the user just needs to enter this command:
+Once the pipeline is configured, the user just needs to enter these commands:
 
 ```
+conda activate snakemake
 snakemake --use-conda -j 200
+conda deactivate
 ```
 
 The mandatory arguments are:
