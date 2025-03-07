@@ -35,11 +35,13 @@ def main():
     # rename the lineages from the undif. lines to "undifferentiated"
     lines_info.loc[lines_info["is_undifferentiated"], "lineage"] = "undifferentiated"
 
-    # Filter breast cell lines
-    lines_info = lines_info[lines_info["lineage"] == "breast"]
+    # Filter PNS cell lines
+    lines_info = lines_info[lines_info["lineage"] == "peripheral_nervous_system"]
+
+    # Filter Neuroblastoma primary disease
+    lines_info = lines_info[lines_info["primary_disease"] == "Neuroblastoma"]
 
     lines_info.to_csv(where_to_save, sep=",", index=False)
-
 
 if __name__ == "__main__":
     main()
