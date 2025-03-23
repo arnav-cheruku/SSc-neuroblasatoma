@@ -7,6 +7,7 @@ suppressMessages(library('tidyverse'))
 raw_expected_counts <- snakemake@input[["raw_expected_counts"]]
 ccle_default_line <- snakemake@input[["ccle_default_line"]]
 protein_coding_genes <- snakemake@input[["protein_coding_genes"]]
+cosmx_genes <- snakemake@input[["cosmx_genes"]]
 raw_gene_counts <- snakemake@output[["raw_gene_counts"]]
 
 ### SNAKEMAKE PARAMS ###
