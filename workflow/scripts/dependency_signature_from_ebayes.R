@@ -44,9 +44,9 @@ generate_bidirectional_signature <- function(sig_name, deg_genes){
 extract_top_genes <- function(deg_genes, mode='dependent_up'){
     
     if(mode=='dependent_up'){
-        deg_genes <- head(deg_genes[order(deg_genes$logFC, decreasing = TRUE), 'ID'], n=250)
+        deg_genes <- head(deg_genes[order(deg_genes$logFC, decreasing = TRUE), 'ID'], n=100)
     }else{
-        deg_genes <- head(deg_genes[order(deg_genes$logFC, decreasing = FALSE), 'ID'], n=250)
+        deg_genes <- head(deg_genes[order(deg_genes$logFC, decreasing = FALSE), 'ID'], n=100)
     }
     
     return(deg_genes)
