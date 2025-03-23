@@ -16,7 +16,7 @@ compound_id       <- snakemake@wildcards[['broad_id']]
 signature_type    <- tolower(as.character(snakemake@params[['signature_type']]))
 
 ## If signature_type == 'Classic',
-## then we'll take the top/bottom 250 genes sorted by T.statistics
+## then we'll take the top/bottom 100 genes sorted by T.statistics
 ## If signature_type == 'fold', we'll perform FDR + log fold selection
 
 generate_bidirectional_signature <- function(sig_name, deg_genes){
@@ -53,15 +53,15 @@ extract_top_genes <- function(deg_genes, mode='sensitivity', signature_type='cla
     if(mode=='sensitivity'){
 
         if(signature_type=='classic'){
-            deg_genes <- head(deg_genes[order(deg_genes$t), 'ID'], n=250)
+            deg_genes <- head(deg_genes[order(deg_genes$t), 'ID'], n=100)
         }else{
-            deg_genes <- head(deg_genes[order(deg_genes$logFC), 'ID'], n=250)
+            deg_genes <- head(deg_genes[order(deg_genes$logFC), 'ID'], n=100)
         }
     }else{
         if(signature_type=='classic'){
-            deg_genes <- head(deg_genes[order(-deg_genes$t), 'ID'], n=250)
+            deg_genes <- head(deg_genes[order(-deg_genes$t), 'ID'], n=100)
         }else{
-        deg_genes <- head(deg_genes[order(-deg_genes$logFC), 'ID'], n=250)
+        deg_genes <- head(deg_genes[order(-deg_genes$logFC), 'ID'], n=100)
         }
     }
     return(deg_genes)
