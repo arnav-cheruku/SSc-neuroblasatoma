@@ -1,3 +1,6 @@
+####Change to inlcude only 6175 genes from CosMx panel 
+
+
 suppressMessages(library('tidyverse'))
 
 ### SNAKEMAKE I/O ###
