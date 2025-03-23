@@ -2,6 +2,7 @@
 
 
 suppressMessages(library('tidyverse'))
+suppressMessages(library('dplyr'))
 
 ### SNAKEMAKE I/O ###
 raw_expected_counts <- snakemake@input[["raw_expected_counts"]]
