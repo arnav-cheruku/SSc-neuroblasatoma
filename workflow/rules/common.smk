@@ -19,6 +19,7 @@ rule get_rnaseq_counts:
         raw_expected_counts=datasets.loc["raw_ccle_reads", "directory"],
         ccle_default_line=datasets.loc["ccle_default_line", "directory"],
         protein_coding_genes=datasets.loc["hgnc_protein_coding", "directory"],
+        cosmx_genes=datasets.loc["cosmx_genes_list", "directory"],
     output:
         raw_gene_counts=f"{results}/prism/raw_ccle_counts.rds",
     threads: get_resource("default", "threads"),
