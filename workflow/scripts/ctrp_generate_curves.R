@@ -98,9 +98,9 @@ lines_and_compounds <- drug_data_annotated_lines_depmap %>%
 # Save this table. It is definitely useful
 write.csv(lines_and_compounds, file = compounds_lines_profiled, row.names=FALSE)
 
-## Keep compounds with at least 10 profiled lines
+## Keep compounds with at least 7 profiled lines
 compounds_to_test <- lines_and_compounds %>%
-    filter(profiled_lines >= 10) %>%
+    filter(profiled_lines >= 7) %>%
     arrange(desc(cv)) %>% 
     distinct(broad_cpd_id, .keep_all = TRUE) %>%
     pull(broad_cpd_id)
