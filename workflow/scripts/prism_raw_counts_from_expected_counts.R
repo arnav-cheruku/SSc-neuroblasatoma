@@ -141,7 +141,7 @@ common_genes <- intersect(rownames(ccle_counts), cosmx_genes_list)
 # Subset ccle_counts to keep only the common rows
 ccle_counts <- ccle_counts[common_genes, , drop = FALSE]
 
-cell_lines_annotation <- reaad.csv(cell_lines_annotation)
+cell_lines_annotation <- read.csv(cell_lines_annotation)
 
 nb_ccle <- cell_lines_annotation$DepMap_ID
 
